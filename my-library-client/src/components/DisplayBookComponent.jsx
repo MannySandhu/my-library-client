@@ -1,4 +1,3 @@
-import { Button } from 'bootstrap';
 import React, { Component } from 'react';
 import BookService from '../services/BookService';
 
@@ -21,13 +20,12 @@ class DisplayBookComponent extends Component {
 
     }
 
-    addBook() {
+    addBook = () => {
         
     }
 
     render() {
-        const { book, isbn } = this.state;
-        console.log(book + "   " + isbn);
+        const { book } = this.state;
         return (
             <div>
                 <h2 className="text-center">Showing: {book.title}</h2>
@@ -61,6 +59,8 @@ class DisplayBookComponent extends Component {
                         </tbody>
                     </table>
                 </div>
+                <br />
+                <button className="btn btn-primary" onClick={this.addBook()}> Add Book </button>
             </div>
         );
     }
