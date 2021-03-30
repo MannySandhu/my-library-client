@@ -1,27 +1,35 @@
+import { Button } from 'bootstrap';
 import React, { Component } from 'react';
-//import BookService from '../services/BookService';
+import BookService from '../services/BookService';
 
-class ListBooksComponent extends Component {
+class DisplayBookComponent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            isbn: "",
             book: []
         }
+        this.addBook = this.addBook.bind(this);
     }
 
     componentDidMount() {
-        // BookService.getBookByIsbn("9780545010221").then(res => {
-        //     this.setState({ book: res.data });
-        // });
+        BookService.getBookByIsbn().then(res => {
+            this.setState({ book: res.data });
+        });
 
     }
 
+    addBook() {
+        
+    }
+
     render() {
-        const { book } = this.state;
+        const { book, isbn } = this.state;
+        console.log(book + "   " + isbn);
         return (
             <div>
-                <h2 className="text-center">Book List</h2>
+                <h2 className="text-center">Showing: {book.title}</h2>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -51,10 +59,11 @@ class ListBooksComponent extends Component {
                             }
                         </tbody>
                     </table>
+                    <Button className="btn btn-primary" onClick={this.addBook}> Add Book </Button>
                 </div>
             </div>
         );
     }
 }
 
-export default ListBooksComponent;
+export default DisplayBookComponent;
