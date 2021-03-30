@@ -9,7 +9,7 @@ class DisplayBookComponent extends Component {
             isbn: this.props.match.params.isbn,
             book: []
         }
-        this.addBook = this.addBook.bind(this);
+        this.saveBook = this.saveBook.bind(this);
     }
 
     componentDidMount() {
@@ -17,11 +17,13 @@ class DisplayBookComponent extends Component {
         BookService.getBookByIsbn(isbn).then(res => {
             this.setState({ book: res.data });
         });
-
     }
 
-    addBook = () => {
-        
+    saveBook(book){
+        console.log('saving book => ' + JSON.stringify(book))
+        BookService.saveBook(book).then(res => {
+            this.props.history.push('/books');
+        })
     }
 
     render() {
@@ -60,10 +62,10 @@ class DisplayBookComponent extends Component {
                     </table>
                 </div>
                 <br />
-                <button className="btn btn-primary" onClick={this.addBook()}> Add Book </button>
+                <button className="btn btn-primary" onClick={() => this.saveBook(book)}> Add Book </button>
             </div>
         );
     }
 }
 
-export default DisplayBookComponent;
+export default DisplayBookComponent; 
