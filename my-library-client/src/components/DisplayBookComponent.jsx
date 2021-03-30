@@ -7,14 +7,15 @@ class DisplayBookComponent extends Component {
         super(props);
 
         this.state = {
-            isbn: "",
+            isbn: this.props.match.params.isbn,
             book: []
         }
         this.addBook = this.addBook.bind(this);
     }
 
     componentDidMount() {
-        BookService.getBookByIsbn().then(res => {
+        const { isbn } = this.state;
+        BookService.getBookByIsbn(isbn).then(res => {
             this.setState({ book: res.data });
         });
 
@@ -59,7 +60,6 @@ class DisplayBookComponent extends Component {
                             }
                         </tbody>
                     </table>
-                    <Button className="btn btn-primary" onClick={this.addBook}> Add Book </Button>
                 </div>
             </div>
         );

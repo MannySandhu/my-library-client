@@ -5,12 +5,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="containers">
+    <div className="container">
       <Router>
-        <Switch>
-          <Route path = "/books" component={ListBooksComponent}></Route>
-          <Route path = "/books/search" component={DisplayBookComponent}></Route>
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route exact path = "/" component = {ListBooksComponent}></Route>
+            <Route exact path = "/books" component = {ListBooksComponent}></Route>
+            <Route exact path = "/search/:isbn" component = {DisplayBookComponent}></Route>
+          </Switch>
+        </div>
       </Router>
     </div>
   );
