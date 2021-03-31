@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-//import BookService from '../services/BookService';
+import BookService from '../services/BookService';
 
 class ListBooksComponent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            book: []
+            bookList: []
         }
     }
 
     componentDidMount() {
-        // BookService.getBookByIsbn("9780545010221").then(res => {
-        //     this.setState({ book: res.data });
-        // });
-
+        BookService.getAllBooks().then(res => {
+            this.setState({ bookList: res.data });
+        });
     }
 
     render() {
-        const { book } = this.state;
+        const { bookList } = this.state;
         return (
             <div>
                 <h2 className="text-center">Book List</h2>
@@ -38,16 +37,20 @@ class ListBooksComponent extends Component {
                         </thead>
                         <tbody>
                             {
-                                <tr key={book.id}>
-                                    <td>{book.title}</td>
-                                    <td>{book.authors }</td>
-                                    <td>{book.genre}</td>
-                                    <td>{book.pageCount}</td>
-                                    <td>{book.publisher}</td>
-                                    <td>{book.indentifiers}</td>
-                                    <td>{book.pagesRead}</td>
-                                    <td>{book.status}</td>
-                                </tr>
+                                bookList.map(book => {
+                                    return (
+                                        <tr key={book.id}>
+                                            <td>{book.title}</td>
+                                            <td>{}</td>
+                                            <td>{}</td>
+                                            <td>{book.pageCount}</td>
+                                            <td>{book.publisher}</td>
+                                            <td>{}</td>
+                                            <td>{book.pagesRead}</td>
+                                            <td>{book.status}</td>
+                                        </tr>
+                                    )
+                                })
                             }
                         </tbody>
                     </table>
