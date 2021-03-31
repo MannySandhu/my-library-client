@@ -10,8 +10,8 @@ function App() {
         <div className="container">
           <Switch>
             <Route exact path = "/" component = {ListBooksComponent}></Route>
-            <Route path = "/books" component = {ListBooksComponent}></Route>
-            <Route path = "/search/:isbn" component = {DisplayBookComponent}></Route>
+            <Route exact path = "/books" component = {ListBooksComponent}></Route>
+            <Route exact path = "/search/:isbn" component = {DisplayBookComponent}></Route>
           </Switch>
         </div>
       </Router>

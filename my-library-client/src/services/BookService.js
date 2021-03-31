@@ -9,7 +9,7 @@ class BookService {
     }
 
     saveBook(book) { 
-        return axios.post(BOOK_API_BASE_URL + "/books", book)
+        return axios.post(BOOK_API_BASE_URL + "/books", book);
     }
 
 }
