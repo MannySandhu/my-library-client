@@ -21,7 +21,8 @@ class ListBooksComponent extends Component {
     deleteBookById(id){
         BookService.deleteBookById(id).then(res => {
             console.log(`Deleted ${res}`);
-            //this.state.bookList.filter(id)
+            let updatedBookList = this.state.bookList.filter(book => book.id !== id);
+            this.setState({bookList: updatedBookList});
         })
     }
 
