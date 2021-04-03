@@ -8,12 +8,21 @@ class ListBooksComponent extends Component {
         this.state = {
             bookList: []
         }
+
+        this.deleteBookById = this.deleteBookById.bind(this);
     }
 
     componentDidMount() {
         BookService.getAllBooks().then(res => {
             this.setState({ bookList: res.data });
         });
+    }
+
+    deleteBookById(id){
+        BookService.deleteBookById(id).then(res => {
+            console.log(`Deleted ${res}`);
+            //this.state.bookList.filter(id)
+        })
     }
 
     render() {
@@ -33,6 +42,7 @@ class ListBooksComponent extends Component {
                                 <th>ISBN</th>
                                 <th>Pages Read</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,6 +58,7 @@ class ListBooksComponent extends Component {
                                             <td>{}</td>
                                             <td>{book.pagesRead}</td>
                                             <td>{book.status}</td>
+                                            <td><button className="btn btn-info" onClick={() => this.deleteBookById(book.id)}>Delete</button></td>
                                         </tr>
                                     )
                                 })
