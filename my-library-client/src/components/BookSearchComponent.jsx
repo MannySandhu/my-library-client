@@ -25,7 +25,7 @@ class DisplayBookComponent extends Component {
     searchByIsbn = (isbn) => {
         if(isbn.length === 13){
             BookService.getBookByIsbn(isbn).then(res => {
-                this.setState({ book: res.data, isbn: '~'+isbn });
+                this.setState({ book: res.data, isbn: ' '+isbn });
             });
         }
     }

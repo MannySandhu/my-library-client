@@ -10,6 +10,7 @@ class ListBooksComponent extends Component {
         }
 
         this.deleteBookById = this.deleteBookById.bind(this);
+        this.findBook = this.findBook.bind(this);
     }
 
     componentDidMount() {
@@ -26,11 +27,18 @@ class ListBooksComponent extends Component {
         })
     }
 
+    findBook(){
+        this.props.history.push('/search');
+    }
+
     render() {
         const { bookList } = this.state;
         return (
             <div>
-                <h2 className="text-center">Book List</h2>
+                <div className="row">
+                    <h2 className="text-center offset-md-5">My Book List</h2>
+                    <button className="offset-md-2 btn btn-primary" onClick={this.findBook}> Find Book </button>
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>

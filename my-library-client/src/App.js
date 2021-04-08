@@ -11,7 +11,6 @@ function App() {
           <Switch>
             <Route exact path = "/" component = {ListBooksComponent}></Route>
             <Route exact path = "/books" component = {ListBooksComponent}></Route>
-            {/* <Route exact path = "/search" component = {BookSearchComponent}></Route> */}
             <Route exact path = "/search" component = {BookSearchComponent}></Route>
           </Switch>
         </div>
