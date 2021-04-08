@@ -16,10 +16,14 @@ class DisplayBookComponent extends Component {
     }
 
     saveBook(book) {
-        console.log('saving book => ' + JSON.stringify(book))
-        BookService.saveBook(book).then(res => {
-            this.props.history.push('/books');
-        })
+        if(book !== []){
+            console.log('saving book => ' + JSON.stringify(book))
+            BookService.saveBook(book).then(res => {
+                this.props.history.push('/books');
+            })
+        } else {
+            console.log('no book');
+        }
     }
 
     searchByIsbn = (isbn) => {
@@ -54,7 +58,6 @@ class DisplayBookComponent extends Component {
                                 <input placeholder="Paste ISBN here" name="isbn" className="form-control"
                                     value={isbn} onChange={this.onChangeIsbnHandler} />
                             </div>
-                            {/* <button className="btn btn-primary" onClick={this.searchByIsbn(isbn)}> Search </button> */}
                         </form>
                     </div>
                 </div>
