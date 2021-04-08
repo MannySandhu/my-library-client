@@ -31,7 +31,13 @@ class DisplayBookComponent extends Component {
     }
 
     onChangeIsbnHandler = (event) => {
-        this.setState({ isbn: event.target.value });
+        let input = event.target.value;
+        this.setState({ isbn: input });
+        if(input.length === 13){
+            BookService.getBookByIsbn(input).then(res => {
+                this.setState({ book: res.data, isbn: ' '+input });
+            });
+        }
     }
 
     render() {
@@ -46,7 +52,7 @@ class DisplayBookComponent extends Component {
                                 <input placeholder="Paste ISBN here" name="isbn" className="form-control"
                                     value={isbn} onChange={this.onChangeIsbnHandler} />
                             </div>
-                            <button className="btn btn-primary" onClick={this.searchByIsbn(isbn)}> Search </button>
+                            {/* <button className="btn btn-primary" onClick={this.searchByIsbn(isbn)}> Search </button> */}
                         </form>
                     </div>
                 </div>
