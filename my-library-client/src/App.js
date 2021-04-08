@@ -1,5 +1,5 @@
 import './App.css';
-import DisplayBookComponent from './components/DisplayBookComponent'
+import BookSearchComponent from './components/BookSearchComponent'
 import ListBooksComponent from './components/ListBooksComponent'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -11,7 +11,8 @@ function App() {
           <Switch>
             <Route exact path = "/" component = {ListBooksComponent}></Route>
             <Route exact path = "/books" component = {ListBooksComponent}></Route>
-            <Route exact path = "/books/search/:isbn" component = {DisplayBookComponent}></Route>
+            {/* <Route exact path = "/search" component = {BookSearchComponent}></Route> */}
+            <Route exact path = "/search" component = {BookSearchComponent}></Route>
           </Switch>
         </div>
       </Router>
