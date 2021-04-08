@@ -11,7 +11,6 @@ class DisplayBookComponent extends Component {
             book: []
         }
         this.saveBook = this.saveBook.bind(this);
-        this.searchByIsbn = this.searchByIsbn.bind(this);
         this.onChangeIsbnHandler = this.onChangeIsbnHandler.bind(this);
     }
 
@@ -23,14 +22,6 @@ class DisplayBookComponent extends Component {
             })
         } else {
             console.log('no book');
-        }
-    }
-
-    searchByIsbn = (isbn) => {
-        if(isbn.length === 13){
-            BookService.getBookByIsbn(isbn).then(res => {
-                this.setState({ book: res.data, isbn: ' '+isbn });
-            });
         }
     }
 

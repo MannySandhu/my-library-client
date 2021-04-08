@@ -20,15 +20,15 @@ class ListBooksComponent extends Component {
     }
 
     deleteBook(deleteBook){
-        BookService.deleteBookById(deleteBook.id).then(res => {
+        BookService.deleteBook(deleteBook.id).then(res => {
             console.log(`Deleted ${res}`);
             let updatedBookList = this.state.bookList.filter(book => book.id !== deleteBook.id);
             this.setState({bookList: updatedBookList});
         })
     }
 
-    updateBook(){
-        this.props.history.push('/update');
+    updateBook(updateBook){
+        this.props.history.push('/update/' + updateBook.id);
     }
 
     findBook(){
@@ -71,9 +71,9 @@ class ListBooksComponent extends Component {
                                             <td>{book.publisher}</td>
                                             <td>{}</td>
                                             <td>{book.pagesRead}</td>
-                                            <td>{book.status}</td>
-                                            <td><button className="btn btn-info" onClick={() => this.deleteBook(book)}>Delete</button></td>
+                                            <td>{book.bookStatus}</td>
                                             <td><button className="btn btn-info" onClick={() => this.updateBook(book)}>Update</button></td>
+                                            <td><button className="btn btn-danger" onClick={() => this.deleteBook(book)}>Delete</button></td>
                                         </tr>
                                     )
                                 })

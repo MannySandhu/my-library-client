@@ -16,7 +16,11 @@ class BookService {
         return axios.post(BOOK_API_BASE_URL + "/books", book);
     }
 
-    deleteBookById(id) {
+    updateBook(id, pagesRead, bookStatus){
+        return axios.put(BOOK_API_BASE_URL + "/books/" + id + "/" + pagesRead + "/" + bookStatus);
+    }
+
+    deleteBook(id) {
         return axios.delete(BOOK_API_BASE_URL + "/books/" + id);
     }
 
