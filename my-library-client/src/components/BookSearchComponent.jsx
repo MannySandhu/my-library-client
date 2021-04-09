@@ -20,8 +20,6 @@ class DisplayBookComponent extends Component {
             BookService.saveBook(book).then(res => {
                 this.props.history.push('/books');
             })
-        } else {
-            console.log('no book');
         }
     }
 
@@ -30,7 +28,11 @@ class DisplayBookComponent extends Component {
         this.setState({ isbn: input });
         if(input.length === 13){
             BookService.getBookByIsbn(input).then(res => {
-                this.setState({ book: res.data});
+                if(res.status === 200){
+                    this.setState({ book: res.data});
+                } else {
+                    console.log(res.response);
+                }
             });
         } else {
             this.setState({ book: [] });
@@ -47,7 +49,7 @@ class DisplayBookComponent extends Component {
                             <div className="form-group">
                                 <label>Find a book by ISBN:</label>
                                 <input placeholder="Paste ISBN here" name="isbn" className="form-control"
-                                    value={isbn} onChange={this.onChangeIsbnHandler} />
+                                    value={isbn} maxLength="13" onChange={this.onChangeIsbnHandler} />
                             </div>
                         </form>
                     </div>
