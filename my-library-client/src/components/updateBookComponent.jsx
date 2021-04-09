@@ -35,17 +35,18 @@ class updateBookComponent extends Component {
     render() {
         return (
             <div>
+                <br />
                 <div className="card col-md-6 offset-md-3 offset-md-3">
                     <div className="card-body">
                         <form>
                             <div className="form-group">
-                                <label>Update the page number you read to:</label>
+                                <label>Enter the page number you read to:</label>
                                 <input placeholder="0" name="pageNumber" className="form-control"
                                     value={this.state.pageNumber} onChange={this.onChangePageNumberHandler} />
                             </div>
                             <div className="form-group">
                                 <label>Update book status:</label>
-                                <input placeholder="Book status" name="bookStatus" className="form-control"
+                                <input placeholder="Your note" name="bookStatus" className="form-control"
                                     value={this.state.bookStatus} onChange={this.onChangeStatuHandler} />
                             </div>
                             <button className="btn btn-success" onClick={this.updateBookDetails}>Accept</button>

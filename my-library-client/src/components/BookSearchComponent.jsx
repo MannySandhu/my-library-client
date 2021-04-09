@@ -43,12 +43,13 @@ class DisplayBookComponent extends Component {
         const { book, isbn } = this.state;
         return (
             <div>
+                <br />
                 <div className="card col-md-6 offset-md-3 offset-md-3">
                     <div className="card-body">
                         <form>
-                            <div className="form-group">
-                                <label>Find a book by ISBN:</label>
-                                <input placeholder="Paste ISBN here" name="isbn" className="form-control"
+                            <div className="text-center form-group">
+                                <label>ISBN Search:</label>
+                                <input placeholder="Paste ISBN here" name="isbn" className="text-center form-control"
                                     value={isbn} maxLength="13" onChange={this.onChangeIsbnHandler} />
                             </div>
                         </form>

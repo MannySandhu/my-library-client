@@ -3,7 +3,9 @@ import React from 'react';
 export default function DisplayBook(book){
     return (
         <div>
-            <h2 className="text-center">Showing: {book.book.title}</h2>
+            <br />
+            <h2 className="">Found: {book.book.title}</h2>
+            <br />
             <div className="row">
                 <table className="table table-striped table-bordered">
                     <thead>
