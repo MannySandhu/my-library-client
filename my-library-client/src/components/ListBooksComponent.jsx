@@ -39,10 +39,12 @@ class ListBooksComponent extends Component {
         const { bookList } = this.state;
         return (
             <div>
+                <br />
                 <div className="row">
-                    <h2 className="text-center offset-md-5">My Book List</h2>
-                    <button className="offset-md-2 btn btn-primary" onClick={this.findBook}> Find Book </button>
+                    <button className="btn btn-info" onClick={this.findBook}> Find Book </button>
+                    <h2 className="text-center offset-md-4">My Book List</h2>
                 </div>
+                <br />
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
