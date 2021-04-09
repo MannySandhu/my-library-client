@@ -27,8 +27,8 @@ class ListBooksComponent extends Component {
         })
     }
 
-    updateBook(updateBook){
-        this.props.history.push('/update/' + updateBook.id);
+    updateBook(book){
+        this.props.history.push('/update/' + book.id + '/' + book.pagesRead + '/' + book.bookStatus);
     }
 
     findBook(){
@@ -41,7 +41,7 @@ class ListBooksComponent extends Component {
             <div>
                 <br />
                 <div className="row">
-                    <button className="btn btn-info" onClick={this.findBook}> Find Book </button>
+                    <button className="btn btn-info" onClick={this.findBook}> Find a Book </button>
                     <h2 className="text-center offset-md-4">My Book List</h2>
                 </div>
                 <br />

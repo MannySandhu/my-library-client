@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/" component={ListBooksComponent}></Route>
             <Route exact path="/books" component={ListBooksComponent}></Route>
             <Route exact path="/search" component={BookSearchComponent}></Route>
-            <Route exact path="/update/:id" component={UpdateBookComponent}></Route>
+            <Route exact path="/update/:id/:pagesRead/:bookStatus" component={UpdateBookComponent}></Route>
           </Switch>
         </div>
         <FooterComponent />

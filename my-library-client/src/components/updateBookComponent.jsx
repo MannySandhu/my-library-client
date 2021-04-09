@@ -7,13 +7,14 @@ class updateBookComponent extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            pageNumber: '',
-            bookStatus: ''
+            pageNumber: this.props.match.params.pagesRead,
+            bookStatus: this.props.match.params.bookStatus
         }
 
         this.onChangePageNumberHandler = this.onChangePageNumberHandler.bind(this);
         this.onChangeStatuHandler = this.onChangeStatuHandler.bind(this);
         this.updateBookDetails = this.updateBookDetails.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     onChangePageNumberHandler = (event) => {
@@ -32,7 +33,12 @@ class updateBookComponent extends Component {
         });
     }
 
+    cancel(){
+        this.props.history.push('/');
+    }
+
     render() {
+        const { pageNumber, bookStatus } = this.state;
         return (
             <div>
                 <br />
@@ -41,15 +47,16 @@ class updateBookComponent extends Component {
                         <form>
                             <div className="form-group">
                                 <label>Enter the page number you read to:</label>
-                                <input placeholder="0" name="pageNumber" className="form-control"
-                                    value={this.state.pageNumber} onChange={this.onChangePageNumberHandler} />
+                                <input placeholder="Page number" name="pageNumber" className="form-control"
+                                    value={pageNumber} onChange={this.onChangePageNumberHandler} />
                             </div>
                             <div className="form-group">
                                 <label>Update book status:</label>
                                 <input placeholder="Your note" name="bookStatus" className="form-control"
-                                    value={this.state.bookStatus} onChange={this.onChangeStatuHandler} />
+                                    value={bookStatus} onChange={this.onChangeStatuHandler} />
                             </div>
                             <button className="btn btn-success" onClick={this.updateBookDetails}>Accept</button>
+                            <button className="offset-md-1 btn btn-danger" onClick={this.cancel}>Cancel</button>
                         </form>
                     </div>
                 </div>
