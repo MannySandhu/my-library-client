@@ -57,7 +57,7 @@ class DisplayBookComponent extends Component {
                 </div>
                 <DisplayBook book={book}></DisplayBook>
                 <br />
-                <button className="btn btn-primary" onClick={() => this.saveBook(book)}> Add Book </button>
+                <button className="btn btn-success" onClick={() => this.saveBook(book)}> Add Book </button>
             </div>
         );
     }

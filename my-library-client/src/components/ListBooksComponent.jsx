@@ -28,7 +28,7 @@ class ListBooksComponent extends Component {
     }
 
     updateBook(book){
-        this.props.history.push('/update/' + book.id + '/' + book.pagesRead + '/' + book.bookStatus);
+        this.props.history.push('/update/' + book.id + '/' + book.title + '/' + book.pagesRead + '/' + book.bookStatus);
     }
 
     findBook(){

@@ -7,6 +7,7 @@ class updateBookComponent extends Component {
 
         this.state = {
             id: this.props.match.params.id,
+            title: this.props.match.params.title,
             pageNumber: this.props.match.params.pagesRead,
             bookStatus: this.props.match.params.bookStatus
         }
@@ -38,9 +39,11 @@ class updateBookComponent extends Component {
     }
 
     render() {
-        const { pageNumber, bookStatus } = this.state;
+        const { title, pageNumber, bookStatus } = this.state;
         return (
             <div>
+                <br />
+                <h2 className="text-center">{title}</h2>
                 <br />
                 <div className="card col-md-6 offset-md-3 offset-md-3">
                     <div className="card-body">
