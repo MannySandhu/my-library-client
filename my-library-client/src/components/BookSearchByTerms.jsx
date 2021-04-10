@@ -4,7 +4,7 @@ export default function DisplayBooks(books) {
     return (
         <div>
             <br />
-            <h2 className="">Found: {books.books.length} Result(s))</h2>
+            <h2 className="">Found: {books.books.length} Result(s)</h2>
             <br />
             <div className="row">
                 <table className="table table-striped table-bordered">

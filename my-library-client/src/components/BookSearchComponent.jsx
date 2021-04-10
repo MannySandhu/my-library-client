@@ -74,9 +74,9 @@ class DisplayBookComponent extends Component {
                 <div className="card col-md-6 offset-md-3 offset-md-3">
                     {
                         useSearchTerms ?
-                        <button className="btn btn-info" onClick={this.toggleSearch}> Search by ISBN </button>
+                        <button className="btn btn-info" onClick={this.toggleSearch}> Search by ISBN instead</button>
                         :
-                        <button className="btn btn-info" onClick={this.toggleSearch}> Search by Terms </button>
+                        <button className="btn btn-info" onClick={this.toggleSearch}> Search by Terms instead</button>
                     }
                     <div className="card-body">
                         <form>
