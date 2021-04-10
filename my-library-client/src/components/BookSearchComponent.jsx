@@ -83,7 +83,7 @@ class DisplayBookComponent extends Component {
                             {
                                 useSearchTerms ?
                                     <div className="text-center form-group">
-                                        <label>Find books by terms:</label>
+                                        <label>Enter terms separated by a space</label>
                                         <input placeholder="Enter terms" name="terms" className="text-center form-control"
                                             value={terms} onChange={this.onChangeTermsHandler} />
                                         <br />
@@ -91,7 +91,7 @@ class DisplayBookComponent extends Component {
                                     </div>
                                     :
                                     <div className="text-center form-group">
-                                        <label>Find a book by ISBN:</label>
+                                        <label>Find a book by ISBN</label>
                                         <input placeholder="Paste ISBN here" name="isbn" className="text-center form-control"
                                             value={isbn} maxLength="13" onChange={this.onChangeIsbnHandler} />
                                     </div>
