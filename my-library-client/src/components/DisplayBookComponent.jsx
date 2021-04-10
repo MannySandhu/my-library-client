@@ -4,7 +4,7 @@ export default function DisplayBook(book){
     return (
         <div>
             <br />
-            <h2 className="">Found: {book.book.title}</h2>
+            <h2 className="text-center">Found: {book.book.title}</h2>
             <br />
             <div className="row">
                 <table className="table table-striped table-bordered">

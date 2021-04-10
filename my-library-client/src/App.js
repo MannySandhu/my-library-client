@@ -18,7 +18,7 @@ function App() {
             <Route exact path="/update/:id/:title/:pagesRead/:bookStatus" component={UpdateBookComponent}></Route>
           </Switch>
         </div>
-        <FooterComponent />
+        {/* <FooterComponent /> */}
       </Router>
   );
 }

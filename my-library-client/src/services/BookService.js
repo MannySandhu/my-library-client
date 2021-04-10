@@ -12,6 +12,10 @@ class BookService {
         return axios.get(BOOK_API_BASE_URL + "/books/isbn/" + isbn);
     }
 
+    getBooksByTerms(terms) {
+        return axios.get(BOOK_API_BASE_URL + "/books/terms/" + terms);
+    }
+
     saveBook(book) { 
         return axios.post(BOOK_API_BASE_URL + "/books", book);
     }
