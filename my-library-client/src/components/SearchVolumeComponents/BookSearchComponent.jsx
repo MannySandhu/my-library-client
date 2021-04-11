@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import DisplayBook from './DisplayBookComponent';
-import DisplayBooks from './BookSearchByTerms';
-import BookService from '../services/BookService';
+import DisplayBook from '../DisplayVolumeComponents/DisplayIsbnSearchResultComponent';
+import DisplayBooks from '../DisplayVolumeComponents/DisplayTermSearchResultsComponent';
+import BookService from '../../services/BookService';
 
 class DisplayBookComponent extends Component {
     constructor(props) {
